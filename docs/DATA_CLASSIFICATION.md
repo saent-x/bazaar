@@ -48,7 +48,8 @@ and use synthetic data unless contributor consent clearly covers the capture.
 - Contributor age requirements and guardian consent, if minors participate.
 - Withdrawal limits after derived models or published datasets exist.
 - Jurisdiction-specific privacy notice and data-controller identity.
-- Off-site backup destination and encryption-key custody.
+- R2 activation checks, synthetic restore test, and consent for encrypted
+  off-site processing. The project owner holds the offline recovery key.
 
 No real contributor data may be collected until these are resolved for the
 relevant collection stage.

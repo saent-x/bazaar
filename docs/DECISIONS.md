@@ -121,6 +121,25 @@ privacy, licensing, or long-term maintenance. Statuses are `Proposed`,
   not screen count.
 - **Documents affected:** `docs/MVP_SCOPE.md`, `docs/ARCHITECTURE.md`, `SETUP.md`.
 
+### D-012: Conditional no-charge R2 backup
+
+- **Status:** Accepted with activation conditions
+- **Context:** The personal server's RAID 1 is not an off-site backup. Cloudflare
+  R2 currently publishes a Standard-storage free tier, but budget alerts do not
+  impose a hard spending cap.
+- **Decision:** Use a private R2 Standard bucket only after implementing the
+  no-charge and privacy controls in `docs/research/R2_BACKUP.md`. Keep encrypted
+  project inventory at or below 5 GB and disable upload when account-wide free
+  allowance cannot be verified.
+- **Alternatives:** No off-site backup, owner-managed external storage, or a paid
+  backup service.
+- **Approval evidence:** Project-owner approval on 2026-07-10, conditional on no
+  cost.
+- **Consequences:** R2 remains disabled until synthetic restore, usage inventory,
+  quota, and key-custody checks pass. Budget alerts alone are insufficient.
+- **Documents affected:** `docs/PROJECT_STATUS.md`, `docs/OPERATIONS.md`,
+  `docs/DATA_CLASSIFICATION.md`, `docs/research/R2_BACKUP.md`.
+
 ## Decision-change template
 
 ```text

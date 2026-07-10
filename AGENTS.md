@@ -35,6 +35,10 @@ Before making product or architectural choices, read:
     changing the development environment or shared host.
 11. `SETUP.md` before running or changing the development environment.
 
+Before enabling R2 backup, read `docs/research/R2_BACKUP.md` and recheck current
+official pricing. R2 must remain disabled if zero-cost operation cannot be
+verified; a budget alert is not a spending cap.
+
 If these documents disagree, stop and resolve the documentation conflict before
 implementing the affected feature.
 

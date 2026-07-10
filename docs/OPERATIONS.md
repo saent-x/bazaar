@@ -51,7 +51,14 @@ commands in `SETUP.md` before staging use.
 
 ## Backups
 
-RAID 1 protects against one disk failure but is not a backup. No off-site voice
-backup is active. The destination, client-side encryption method, key custodian,
-retention, deletion propagation, and restore test must be approved before Gate 0
-is marked complete or contributor data is retained.
+RAID 1 protects against one disk failure but is not a backup. Cloudflare R2 is
+conditionally approved as the off-site destination under the no-charge and
+privacy controls in `docs/research/R2_BACKUP.md`.
+
+No off-site backup is active. Initial testing must use synthetic data. Real voice
+or contributor data cannot be uploaded until consent permits encrypted off-site
+processing, retention and deletion propagation are defined, and restoration is
+tested.
+
+The project owner controls the offline recovery key. Any runtime key must live in
+a protected host credential file outside Cloudflare and the repository.

@@ -22,17 +22,20 @@ dataset, Cloudflare resource, or new host service has been installed or deployed
   runtime databases.
 - [x] Git repository initialized on the `main` branch.
 - [x] Documentation baseline committed.
-- [ ] Off-site encrypted backup destination and key-custody model approved.
+- [x] R2 conditionally approved as the off-site encrypted backup destination;
+  project owner holds offline recovery key outside Cloudflare and Git.
+- [ ] R2 no-charge controls and account-wide usage verified before activation.
 - [ ] Backup restoration tested after a destination is approved.
 
 Gate 0 is not complete until every item is checked. Do not begin downloading
 models or collecting Tiv recordings merely because the documentation exists.
 
-## Immediate blocker requiring project-owner input
+## Immediate operational blockers
 
-1. Choose the off-site encrypted backup destination and who controls the
-   encryption key. R2 is the leading candidate, but no voice or contributor data
-   will be uploaded without explicit approval.
+1. Cloudflare account access is not available through the current tools, so R2
+   account-wide usage, bucket creation, and budget alerts cannot yet be verified.
+2. The GitHub remote is integrated locally, but remote write authentication is
+   still unavailable; local commits are ahead of `origin/main`.
 
 ## Next work after Gate 0
 
