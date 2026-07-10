@@ -62,3 +62,9 @@ tested.
 
 The project owner controls the offline recovery key. Any runtime key must live in
 a protected host credential file outside Cloudflare and the repository.
+
+The private Standard bucket is `bazaar-encrypted-backups`. Restic 0.18.1 is the
+approved client-side encryption and integrity tool. The quota preflight is
+`infra/backup/check-r2-quota.sh`; it must pass immediately before every upload.
+Backup objects must use immutable unique keys rather than overwriting a recently
+deleted key.

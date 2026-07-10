@@ -29,6 +29,11 @@ compatibility unless dependency tests prove a different runtime. Any new service
 must be unprivileged, resource-limited, and reversible so it cannot disrupt the
 existing workloads.
 
+`/data/tiv-live` exists with mode `750` and is owned by the project user. Restic
+0.18.1 is installed from the Ubuntu package repository. The R2 Restic password
+file is stored outside Git at `/data/tiv-live/secrets/r2-restic-password` with
+mode `600`; never print or commit its contents.
+
 ## Expected first implementation
 
 The initial implementation is expected to contain:

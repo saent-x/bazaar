@@ -23,20 +23,28 @@ dataset, Cloudflare resource, or new host service has been installed or deployed
 - [x] Git repository initialized on the `main` branch.
 - [x] Documentation baseline committed.
 - [x] R2 conditionally approved as the off-site encrypted backup destination;
-  project owner holds offline recovery key outside Cloudflare and Git.
-- [ ] R2 no-charge controls and account-wide usage verified before activation.
-- [ ] Backup restoration tested after a destination is approved.
+  key-custody model keeps recovery material outside Cloudflare and Git.
+- [x] Account R2 usage verified: approximately 18.2 MB stored and zero operations
+  reported for the preceding 31 days at preflight time.
+- [x] Private `bazaar-encrypted-backups` Standard bucket created with no public
+  development URL or custom domain.
+- [x] Five-GB project quota accepts safe uploads and rejects over-limit uploads.
+- [x] Synthetic encrypted upload, download, integrity, restore, corruption
+  detection, deletion, and empty-bucket verification completed.
+- [ ] Project owner has copied the Restic recovery password to protected offline
+  custody.
+- [ ] Lowest practical Cloudflare budget alert configured and recipient tested.
 
 Gate 0 is not complete until every item is checked. Do not begin downloading
 models or collecting Tiv recordings merely because the documentation exists.
 
 ## Immediate operational blockers
 
-1. Wrangler 4.110.0 and R2 management access are verified. Account-level R2
-   storage is approximately 18.2 MB across 25 existing objects. The token lacks
-   `Account Analytics: Read`, so the last-31-day R2 operation count and remaining
-   free operation allowance cannot yet be verified. No Tiv Live bucket has been
-   created.
+1. Copy `/data/tiv-live/secrets/r2-restic-password` through a protected channel
+   into project-owner offline custody; never paste it into chat or Git.
+2. Configure the lowest practical Cloudflare budget alert and verify its email
+   recipient. Alerts are informational and remain secondary to the project-side
+   quota.
 
 ## Repository synchronization
 

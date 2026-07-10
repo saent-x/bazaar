@@ -95,10 +95,35 @@ R2 backup is active only after all of these are verified:
   documentation.
 - Account-level R2 metrics reported approximately 18.2 MB in 25 objects, far
   below the published 10 GB-month Standard-storage free allowance.
-- The GraphQL `r2OperationsAdaptiveGroups` query was denied because the token
-  lacks `Account Analytics: Read`.
-- No Tiv Live bucket or object was created.
+- After `Account Analytics: Read` was added, the GraphQL
+  `r2OperationsAdaptiveGroups` query reported zero requests in the preceding 31
+  days.
+- The private `bazaar-encrypted-backups` bucket was created with a Western Europe
+  placement hint and Standard default storage. Public `r2.dev` access is
+  disabled, no custom domain is attached, and the bucket was empty after tests.
 
-Activation remains blocked until the operation allowance is verified. Add
-`Account -> Account Analytics -> Read` to the existing project token and rerun
-the preflight.
+## Synthetic restore evidence on 2026-07-10
+
+- Restic 0.18.1 created an encrypted repository containing random synthetic data
+  and a synthetic manifest.
+- `restic check --read-data` passed before upload.
+- The 5 GB guard accepted the approximately 72 KB archive and separately rejected
+  a simulated 5,000,000,001-byte upload with exit status 3.
+- Wrangler uploaded only the encrypted Restic repository archive.
+- A uniquely named download matched the uploaded archive byte-for-byte.
+- The downloaded repository passed `restic check --read-data` and restored both
+  source files exactly.
+- After one pack file was deliberately modified, `restic check --read-data`
+  returned nonzero and detected the corruption.
+- The synthetic object and local test directories were deleted. Independent
+  verification showed zero objects and zero bytes remaining in the bucket.
+
+One repeated-key test produced a byte mismatch after deleting and recreating the
+same object key. The cause was not established. Backups must therefore use
+immutable unique object keys; do not overwrite or rapidly reuse deleted keys.
+
+The test wrapper printed all pass conditions but returned exit status 1 after
+completion. Independent checks verified remote deletion, local cleanup, quota
+rejection, Restic installation, and secret-file permissions. Before automation,
+the test should be converted into a committed script whose final exit behavior
+is covered by a regression test.
