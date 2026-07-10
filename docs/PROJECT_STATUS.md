@@ -32,8 +32,10 @@ models or collecting Tiv recordings merely because the documentation exists.
 
 ## Immediate operational blockers
 
-1. Cloudflare account access is not available through the current tools, so R2
-   account-wide usage, bucket creation, and budget alerts cannot yet be verified.
+1. Wrangler 4.110.0 is available through `npx`, and the existing Cloudflare token
+   can identify the authorized account through zone metadata. The token lacks R2
+   permission: `wrangler r2 bucket list` fails with Cloudflare API code 10000.
+   R2 account-wide usage, bucket creation, and budget alerts remain unverified.
 
 ## Repository synchronization
 

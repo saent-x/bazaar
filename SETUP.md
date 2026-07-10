@@ -18,6 +18,12 @@ the initial stack is selected and committed.
 - Node 22, npm, Git, Python 3.14, and `uv` are installed.
 - Docker, Podman, `cloudflared`, and Wrangler are not installed.
 
+Wrangler can currently be run transiently with `npx wrangler@latest`; version
+4.110.0 was verified on 2026-07-10. A `CLOUDFLARE_API_TOKEN` is present and can
+read the configured zone, but Cloudflare rejects R2 bucket access with API code
+10000 because the token lacks the required R2 permission. No R2 resource has
+been created.
+
 Use an isolated Python 3.11 or 3.12 environment under `/data/tiv-live` for ML
 compatibility unless dependency tests prove a different runtime. Any new service
 must be unprivileged, resource-limited, and reversible so it cannot disrupt the
