@@ -32,10 +32,11 @@ models or collecting Tiv recordings merely because the documentation exists.
 
 ## Immediate operational blockers
 
-1. Wrangler 4.110.0 is available through `npx`, and the existing Cloudflare token
-   can identify the authorized account through zone metadata. The token lacks R2
-   permission: `wrangler r2 bucket list` fails with Cloudflare API code 10000.
-   R2 account-wide usage, bucket creation, and budget alerts remain unverified.
+1. Wrangler 4.110.0 and R2 management access are verified. Account-level R2
+   storage is approximately 18.2 MB across 25 existing objects. The token lacks
+   `Account Analytics: Read`, so the last-31-day R2 operation count and remaining
+   free operation allowance cannot yet be verified. No Tiv Live bucket has been
+   created.
 
 ## Repository synchronization
 

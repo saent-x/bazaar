@@ -87,3 +87,18 @@ R2 backup is active only after all of these are verified:
 - Budget alert configured where the account supports it.
 - Synthetic backup, restore, corruption detection, and deletion tested.
 - Official pricing rechecked and documented on the activation date.
+
+## Account preflight on 2026-07-10
+
+- Wrangler 4.110.0 authentication succeeded.
+- One pre-existing R2 bucket was found; its name was not recorded in project
+  documentation.
+- Account-level R2 metrics reported approximately 18.2 MB in 25 objects, far
+  below the published 10 GB-month Standard-storage free allowance.
+- The GraphQL `r2OperationsAdaptiveGroups` query was denied because the token
+  lacks `Account Analytics: Read`.
+- No Tiv Live bucket or object was created.
+
+Activation remains blocked until the operation allowance is verified. Add
+`Account -> Account Analytics -> Read` to the existing project token and rerun
+the preflight.
