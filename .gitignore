@@ -1,0 +1,53 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# JavaScript
+node_modules/
+dist/
+.wrangler/
+
+# Models, datasets, audio, and evaluation artifacts
+models/
+datasets/
+artifacts/
+recordings/
+donations/
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.opus
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# Runtime state
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+logs/
+tmp/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
