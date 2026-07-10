@@ -21,20 +21,18 @@ dataset, Cloudflare resource, or new host service has been installed or deployed
 - [x] Repository ignore rules cover secrets, audio, datasets, model weights, and
   runtime databases.
 - [x] Git repository initialized on the `main` branch.
-- [ ] Documentation baseline committed.
+- [x] Documentation baseline committed.
 - [ ] Off-site encrypted backup destination and key-custody model approved.
 - [ ] Backup restoration tested after a destination is approved.
 
 Gate 0 is not complete until every item is checked. Do not begin downloading
 models or collecting Tiv recordings merely because the documentation exists.
 
-## Immediate blockers requiring project-owner input
+## Immediate blocker requiring project-owner input
 
 1. Choose the off-site encrypted backup destination and who controls the
    encryption key. R2 is the leading candidate, but no voice or contributor data
    will be uploaded without explicit approval.
-2. If Git author identity is not already configured on the host, provide the
-   name and email to use for repository commits.
 
 ## Next work after Gate 0
 
