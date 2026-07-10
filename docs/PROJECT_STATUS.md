@@ -34,8 +34,12 @@ models or collecting Tiv recordings merely because the documentation exists.
 
 1. Cloudflare account access is not available through the current tools, so R2
    account-wide usage, bucket creation, and budget alerts cannot yet be verified.
-2. The GitHub remote is integrated locally, but remote write authentication is
-   still unavailable; local commits are ahead of `origin/main`.
+
+## Repository synchronization
+
+The local `main` branch is connected to `saent-x/bazaar` using a dedicated,
+repository-scoped SSH deploy key with write access. Local and remote history were
+synchronized and verified on 2026-07-10.
 
 ## Next work after Gate 0
 
